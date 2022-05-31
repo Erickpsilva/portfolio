@@ -1,0 +1,242 @@
+* {
+    font-family:'salsa', Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'salsa',Arial, Helvetica, sans-serif;
+    color: #030114;
+}
+.header-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #6f9de4;
+    background-image: url(estilo/Erick.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative;
+}
+h1 {
+    font-size: 80px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.social-media {
+    margin-top: 1rem;
+    display: flex;
+}
+.social-media a {
+    text-decoration: none;
+    color: #030114;
+    padding: 1rem 4rem;
+    display: flex;
+    border: 1px solid #030114;
+    min-width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    transition: .5s ease-in-out;
+}
+a:hover {
+    background-color: rgba(255, 255, 255, 0.753);
+}
+/* MENU HAMBURGUER */
+.checkbox {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 400ms ease-in-out 0s;
+}
+.checkbox .trace {
+    width: 50px;
+    height: 2px;
+    background-color: #030114;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+.checkbox .trace:nth-child(1){
+    top: 20px;
+    transform: rotate(0);
+}
+.checkbox .trace:nth-child(2){
+    top: 40px;
+    transform: rotate(0);
+}
+.checkbox .trace:nth-child(3){
+    top: 60px;
+    transform: rotate(0);
+} 
+#toggle {
+    display: none;
+}
+/* MENU */
+.menu {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background-color: transparent;
+    height: 4px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px #ffffff;
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+}
+.menu-items {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in 0s;
+}
+.menu-items ul {
+    list-style-type: none;
+}
+.menu-items ul li a {
+    margin: 10px 0;
+    color: #030114;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4pix;
+    font: 40px;
+    font-size: 40px;
+}
+/* ANIMAÇAO DO MENU */
+#toggle:checked + .checkbox .trace:nth-child(1){
+    transform:rotate(45deg);
+    top: 47px;
+}
+#toggle:checked + .checkbox .trace:nth-child(2) {
+    transform: translate(-100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+#toggle:checked + .checkbox .trace:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 47px;
+}
+#toggle:checked + .checkbox{
+    background-color: #ffffff;
+}
+#toggle:checked ~ .menu {
+    box-shadow: 0px 0px 0px 100vmax #ffffff;
+    z-index: 1;
+}
+#toggle:checked ~ .menu-items {
+    visibility: visible;
+    opacity: 1;
+
+}
+/* CARDS */
+.container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 30px 0;
+}
+.card-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+}
+.card {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    margin: 30px 0 0 0;
+    align-items: center;
+    justify-content: center;
+    background-color: #6f9de4;
+    background-image: url(estilo/Erick.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: grayscale(0.5);
+    color: #030114;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+.card-text {
+    width: 30%;
+    letter-spacing: 2px;
+    color: rgb(107, 107, 107);
+}
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.card-wrapper::before{
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    border: 1px solid #030114;
+    opacity: 0;
+    transition: 0.5 ease-in-out;
+}
+.card-wrapper h2 {
+    font-size: 40px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.5s ease-in-out;
+}
+.card-wrapper p {
+    font-size: 0;
+    color: #ffffff;
+    visibility: visible;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.5 ease-in-out;
+}
+.card:hover {
+    filter: unset;
+}
+.card:hover > .card-wrapper::before {
+    height: 200px;
+    width: 200px;
+    opacity: 1;
+}
+.card:hover > .card-wrapper p {
+    opacity: 1;
+    visibility: visible;
+    font-size:  14px;
+}
